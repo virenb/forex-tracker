@@ -1,13 +1,11 @@
 import axios from 'axios'
 
 module.exports = {
-	fetchCurrentRates: () => {
-	return axios.get('http://api.fixer.io/latest?base=USD')
+	fetchCurrentRates: (currency) => {
+	return axios.get('http://api.fixer.io/latest?symbols=' + currency +'' )
 		.then((response) => response)
 	}
 }
-
-
 
 
 // function() {
