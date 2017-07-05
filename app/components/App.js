@@ -14,7 +14,6 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Current} />
             <Route path='/history' component={History} />
-            <Route render={ () => <p>Not Found</p> }/>
           </Switch>
         </div>
       </Router>
