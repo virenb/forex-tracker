@@ -17,10 +17,16 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "prop-types": "^15.5.10",
+    "query-string": "^4.3.4",
     "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
+    "reactstrap": "^4.8.0",
     "redux": "^3.7.1"
   },
   "devDependencies": {

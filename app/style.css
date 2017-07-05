@@ -40,3 +40,28 @@ li {
 .active {
   font-weight: bold;
 }
+
+ul {
+  padding: 0;
+}
+
+.currencies {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.currencies li {
+  margin: 1.5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btnSpace {
+  margin: 2px;
+}
+
+.instructions {
+  margin-top: 10px;
+}
