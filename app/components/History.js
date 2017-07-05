@@ -42,7 +42,8 @@ class History extends React.Component {
 		this.state = {
 			selectedCurrency: '',
 			date: '',
-			rates: ''
+			rates: '',
+			base: ''
 		}
 	this.setDate = this.setDate.bind(this);
 	this.updateCurrency = this.updateCurrency.bind(this);
@@ -63,7 +64,7 @@ handleDateSubmit(event, date, currency) {
 		event.preventDefault();
 		api.fetchHistoryRates(this.state.date, this.state.selectedCurrency)
 			.then((response) => {
-				this.setState({ rates: response.data.rates })
+				this.setState({ rates: response.data.rates, base: '1 Euro' })
 				console.log(this.state)
 			})
 			.catch((err) => { console.log(err) })		
@@ -74,7 +75,7 @@ handleDateSubmit(event, date, currency) {
 			<div>
 				<div className="current-results">
 				<h2>{this.state.date}</h2>
-					<p className='euro'>1 Euro</p>
+					<p className='euro'>{this.state.base}</p>
 					<p className='compare-currency'>{Object.values(this.state.rates)} {Object.keys(this.state.rates)}</p>					
 					<form onSubmit={this.handleDateSubmit}>
 						<label>

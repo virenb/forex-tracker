@@ -43,7 +43,8 @@ class Current extends React.Component {
 			selectedCurrency: '',
 			date: '',
 			rates: '',
-			keys: []
+			keys: [],
+			base: ''
 		}
 	this.updateCurrency = this.updateCurrency.bind(this);
 	}
@@ -53,7 +54,7 @@ updateCurrency(currency) {
 
 	api.fetchCurrentRates(currency)
 	.then((response) => {
-		this.setState({ date: response.data.date, rates: response.data.rates })
+		this.setState({ date: response.data.date, rates: response.data.rates, base: '1 Euro' })
 		console.log(this.state.rates)
 	})
 }
@@ -67,7 +68,7 @@ componentDidMount() {
 			<div>
 				<div className="current-results">
 					<h2>{this.state.date}</h2>
-					<p className='euro'>1 Euro</p>
+					<p className='euro'>{this.state.base}</p>
 					<p className='compare-currency'>{Object.values(this.state.rates)} {Object.keys(this.state.rates)}</p>
 				<SelectCurrency
 					selectedCurrency={this.state.selectedCurrency}
