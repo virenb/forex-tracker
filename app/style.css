@@ -8,6 +8,7 @@ body {
 }
 
 .header {
+  margin-top: 20px;
 	display: flex;
 	justify-content: center;
 	color: #36454f;
@@ -18,6 +19,11 @@ body {
 a {
   text-decoration: none;
   color: #696969;
+}
+
+a:hover, a:link, a:active {
+  color: #696969;
+  text-decoration: none;
 }
 
 ul {
@@ -31,6 +37,7 @@ li {
 .nav {
   display: flex;
   justify-content: center;
+  margin-bottom: 35px;
 }
 
 .nav li {
@@ -63,5 +70,25 @@ ul {
 }
 
 .instructions {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.table-nonfluid {
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+.current-results {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.euro {
+  font-size: 1.3rem;
+}
+
+.compare-currency {
+  font-size: 1.3rem;
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button } from 'reactstrap'
+import CurrencyTable from './CurrencyTable'
 import PropTypes from 'prop-types'
 import api from '../utils/api'
-//import Rates from './Rates'
 
 const SelectCurrency = (props) => {
 	let currencies = ["AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR",
@@ -10,17 +10,21 @@ const SelectCurrency = (props) => {
 	return (
 		<div>
 			<ul className="currencies">
+				<div className="row">
 				{currencies.map((currency) => {
 					return (
 						<Button 
+						size='sm'
 						style={currency === props.selectedCurrency ? {fontWeight: 'bold'} : null}
 						onClick={props.onSelect.bind(null, currency)} 
 						key={currency}
+						className='btnSpace'
 						>
 						{currency}
 						</Button>
 					)
 				})}
+				</div>
 			</ul>
 		</div>
 	)
@@ -38,15 +42,11 @@ class Current extends React.Component {
 		this.state = {
 			selectedCurrency: '',
 			date: '',
-			rates: [],
+			rates: '',
 			keys: []
 		}
 	this.updateCurrency = this.updateCurrency.bind(this);
 	}
-
-componentDidMount() {
-	updateCurrency(this.state.selectedCurrency)
-}
 
 updateCurrency(currency) {
 	this.setState({selectedCurrency: currency})
@@ -55,29 +55,25 @@ updateCurrency(currency) {
 	.then((response) => {
 		this.setState({ date: response.data.date, rates: response.data.rates })
 		console.log(this.state.rates)
-		// Object.keys(response.data.rates).forEach(function(key) {
-		// 	console.log(key + ': ' + response.data.rates[key]);
-		//})
 	})
 }
-//Object.keys(nameObj).forEach(function(key) {
-//    console.log(key + ': ' + nameObj[key]);
-// });
 
-	componentDidMount() {
-
-	}
+componentDidMount() {
+	updateCurrency(this.state.selectedCurrency)
+}
 
 	render() {
 		return (
 			<div>
-				{this.state.date}
-				<p>EUR 1</p>
-				<p>{Object.keys(this.state.rates)} {Object.values(this.state.rates)}</p>
+				<div className="current-results">
+					<h2>{this.state.date}</h2>
+					<p className='euro'>1 Euro</p>
+					<p className='compare-currency'>{Object.values(this.state.rates)} {Object.keys(this.state.rates)}</p>
 				<SelectCurrency
 					selectedCurrency={this.state.selectedCurrency}
-					onSelect={this.updateCurrency} />
-					
+					onSelect={this.updateCurrency} />			
+				<CurrencyTable />	
+				</div>				
 			</div>
 		)
 	}
