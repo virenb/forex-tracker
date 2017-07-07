@@ -18,9 +18,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-alpha.6",
-    "fixed-data-table": "^0.6.4",
     "prop-types": "^15.5.10",
-    "query-string": "^4.3.4",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
